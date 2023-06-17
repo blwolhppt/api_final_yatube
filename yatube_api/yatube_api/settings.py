@@ -1,13 +1,16 @@
-from pathlib import Path
-
+import os
 from datetime import timedelta
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'hhz7l-ltdismtf@bzyz+rple7*s*w$jak%whj@(@u0eok^f9k4'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
-DEBUG = True
+DEBUG = bool(os.getenv('DEBUG'))
 
+# не получилось с allowed_hosts, я попробовала разные методы,
+# но все ломается. Если несложно, то скиньте, пожалуйста,
+# документацию или пример как это сделать. Заранее спасибо!
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
